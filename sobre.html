@@ -3,138 +3,151 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sobre - ACAJ Imóveis</title>
+    <title>Sobre Mim | ACAJ Imóveis</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
     
     <style>
-        /* MANTENDO A IDENTIDADE VISUAL */
         :root {
-            --primaria: #2563eb;
-            --primaria-hover: #1d4ed8;
-            --escura: #1e293b;
-            --clara: #f8fafc;
+            --primaria: #1e3a8a; 
+            --detalhe: #d97706;  
+            --escura: #0f172a;
+            --clara: #f1f5f9;
             --texto: #334155;
             --branco: #ffffff;
-            --bg-submenu: #2d3748;
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
-            font-family: 'Segoe UI', system-ui, sans-serif;
-            line-height: 1.6;
+            font-family: 'Montserrat', sans-serif;
             color: var(--texto);
-            background-color: var(--clara);
+            background-color: var(--branco);
+            line-height: 1.6;
         }
 
         .container { max-width: 1100px; margin: 0 auto; padding: 0 20px; }
 
-        /* HEADER IGUAL AO DA HOME PARA CONSISTÊNCIA */
+        /* HEADER (IDÊNTICO À HOME) */
         header {
-            background: var(--escura);
-            color: var(--branco);
+            background: var(--branco);
             padding: 1rem 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
             position: sticky;
             top: 0;
             z-index: 1000;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
         }
 
         nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { font-size: 1.5rem; font-weight: bold; color: var(--primaria); text-decoration: none; }
-        
-        .nav-links { display: flex; list-style: none; }
+        .logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; font-weight: 700; color: var(--escura); text-decoration: none; }
+        .logo span { color: var(--primaria); }
+
+        .nav-links { display: flex; list-style: none; align-items: center; }
         .nav-links > li { position: relative; }
-        .nav-links a { color: var(--branco); text-decoration: none; padding: 10px 20px; display: block; transition: 0.3s; }
-        
-        /* HOVER NOS LINKS */
+        .nav-links a { color: var(--escura); text-decoration: none; padding: 15px 25px; font-weight: 600; font-size: 0.9rem; transition: 0.3s; display: block; }
         .nav-links > li:hover > a { color: var(--primaria); }
 
-        /* SUBMENU PERSONALIZADO */
+        /* SUBMENU LARGO E PERSONALIZADO */
         .submenu {
-            display: none; position: absolute; top: 100%; left: 0;
-            background: var(--bg-submenu); min-width: 200px; list-style: none;
-            box-shadow: 0 8px 16px rgba(0,0,0,0.2); border-radius: 0 0 5px 5px; padding: 10px 0;
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background: var(--primaria);
+            min-width: 280px;
+            list-style: none;
+            border-radius: 0 0 8px 8px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            padding: 10px 0;
         }
-        .submenu li a:hover { background-color: var(--primaria); padding-left: 25px; }
-        .nav-links li:hover .submenu { display: block; animation: fadeIn 0.3s ease; }
 
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+        .submenu li a { color: var(--branco); padding: 12px 25px; font-size: 0.85rem; border-bottom: 1px solid rgba(255,255,255,0.05); }
+        .submenu li a:hover { background-color: var(--detalhe); padding-left: 35px; }
+        .nav-links li:hover .submenu { display: block; }
 
-        /* CONTEÚDO DA PÁGINA SOBRE */
+        /* CABEÇALHO DA PÁGINA */
         .pagina-cabecalho {
-            background: linear-gradient(var(--escura), var(--bg-submenu));
+            background: linear-gradient(rgba(15, 23, 42, 0.9), rgba(15, 23, 42, 0.9)), 
+                        url('https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1500&q=80');
+            background-size: cover;
+            background-position: center;
             color: white;
-            padding: 60px 0;
+            padding: 80px 0;
             text-align: center;
-            margin-bottom: 50px;
         }
+        .pagina-cabecalho h1 { font-family: 'Playfair Display', serif; font-size: 3rem; margin-bottom: 10px; }
 
+        /* SEÇÃO SOBRE - GRID */
         .sobre-grid {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            gap: 50px;
+            gap: 60px;
             align-items: center;
-            padding-bottom: 60px;
+            padding: 80px 0;
         }
 
         .sobre-img {
             width: 100%;
-            height: 450px;
-            background: url('https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=600&q=80');
+            height: 500px;
+            background: url('https://images.unsplash.com/photo-1556155092-490a1ba16284?auto=format&fit=crop&w=800&q=80');
             background-size: cover;
             background-position: center;
-            border-radius: 15px;
-            box-shadow: 15px 15px 0px var(--primaria);
+            border-radius: 12px;
+            box-shadow: 20px 20px 0px var(--primaria);
         }
 
-        .sobre-texto h2 { color: var(--escura); margin-bottom: 20px; }
-        .sobre-texto p { margin-bottom: 15px; }
+        .sobre-texto h2 { font-family: 'Playfair Display', serif; color: var(--escura); font-size: 2.2rem; margin-bottom: 25px; }
+        .sobre-texto p { margin-bottom: 20px; font-size: 1.1rem; }
 
-        /* CARDS DE DIFERENCIAIS */
+        /* DIFERENCIAIS */
         .grid-diferenciais {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
             margin: 40px 0;
         }
 
-        .card {
-            background: white;
-            padding: 25px;
-            border-radius: 10px;
+        .card-dif {
+            background: var(--clara);
+            padding: 40px 30px;
+            border-radius: 12px;
             text-align: center;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
             transition: 0.3s;
         }
+        .card-dif:hover { transform: translateY(-10px); background: var(--branco); box-shadow: 0 10px 30px rgba(0,0,0,0.08); }
+        .card-dif span { font-size: 3rem; display: block; margin-bottom: 15px; }
+        .card-dif h3 { color: var(--primaria); margin-bottom: 10px; }
 
-        .card:hover { transform: translateY(-5px); border-bottom: 4px solid var(--primaria); }
-        .card i { font-size: 2rem; display: block; margin-bottom: 10px; }
-
-        /* BOX DE CAPTAÇÃO */
+        /* CTA BOX */
         .cta-box {
-            background: var(--primaria);
+            background: var(--escura);
             color: white;
-            padding: 40px;
+            padding: 60px;
             border-radius: 15px;
             text-align: center;
             margin: 60px 0;
         }
-
-        .btn-contato {
-            background: var(--escura);
+        .btn-whats {
+            background: var(--detalhe);
             color: white;
             padding: 15px 40px;
             text-decoration: none;
             border-radius: 5px;
             display: inline-block;
-            margin-top: 20px;
+            margin-top: 30px;
             font-weight: bold;
+            transition: 0.3s;
         }
+        .btn-whats:hover { background: #b45309; transform: scale(1.05); }
 
-        footer { background: var(--escura); color: white; text-align: center; padding: 30px 0; }
+        /* RODAPÉ (IDÊNTICO À HOME) */
+        footer { background: var(--escura); color: var(--branco); padding: 60px 0 20px; margin-top: 80px; }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-logo { font-family: 'Playfair Display', serif; font-size: 1.8rem; margin-bottom: 10px; display: block; }
+        .creci { color: var(--detalhe); font-weight: bold; display: block; margin-bottom: 15px; }
 
         @media (max-width: 768px) {
             .sobre-grid { grid-template-columns: 1fr; }
+            .sobre-img { height: 350px; box-shadow: 10px 10px 0px var(--primaria); }
             .nav-links { display: none; }
         }
     </style>
@@ -143,25 +156,26 @@
 
     <header>
         <nav class="container">
-            <a href="index.html" class="logo">ACAJ Imóveis</a>
+            <a href="index.html" class="logo">ACAJ <span>Imóveis</span></a>
             <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
-                <li><a href="sobre.html" style="color: var(--primaria);">Sobre ▼</a></li>
                 <li>
-                    <a href="#">Imóveis ▼</a>
+                    <a href="#" style="color: var(--primaria);">Sobre ▼</a>
                     <ul class="submenu">
-                        <li><a href="#">Comprar</a></li>
-                        <li><a href="#">Alugar</a></li>
-                        <li><a href="#">Lançamentos</a></li>
+                        <li><a href="#proposito">&&&&&&&&</a></li>
+                        <li><a href="#diferenciais">&&&&&&&&&</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="#servicos">Serviços ▼</a>
+                    <a href="#">Serviços e Imóveis ▼</a>
                     <ul class="submenu">
-                        <li><a href="#">Avaliação</a></li>
-                        <li><a href="#">Consultoria</a></li>
+                        <li><a href="#">Casas e Apartamentos à Venda</a></li>
+                        <li><a href="#">Salas, Lojas e Escritórios</a></li>
+                        <li><a href="#">Administração de Locação</a></li>
+                        <li><a href="#">Avaliação de Mercado Atualizada</a></li>
                         <li><a href="#">Financiamento</a></li>
                     </ul>
+                </li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -169,52 +183,79 @@
 
     <div class="pagina-cabecalho">
         <div class="container">
-            <h1>Quem Somos</h1>
-            <p>Conheça a história e o propósito da ACAJ Imóveis</p>
+            <h1>Conheça a ACAJ Imóveis</h1>
+            <p>Dedicado a valorizar cada detalhe do seu patrimônio</p>
         </div>
     </div>
 
     <main class="container">
-        <section class="sobre-grid">
+        <section class="sobre-grid" id="proposito">
             <div class="sobre-img"></div>
             <div class="sobre-texto">
                 <h2>Foco total na captação e valorização do seu imóvel</h2>
-                <p>A <strong>ACAJ Imóveis</strong> nasceu do desejo de transformar a experiência de quem precisa vender ou alugar um imóvel. Como estou em fase de expansão de carreira, trato cada novo cliente como prioridade absoluta.</p>
-                <p>Minha missão é encurtar o caminho entre o proprietário e o comprador ideal através de estratégias de marketing digital moderno e um atendimento verdadeiramente humano.</p>
-                <p>Aqui, seu imóvel não é apenas mais um número no sistema; ele é um projeto que trabalharemos juntos até a conclusão do negócio.</p>
+                <p>A <strong>ACAJ Imóveis</strong> nasceu do desejo de transformar a experiência de quem precisa vender ou alugar um imóvel. Atuando como corretor autônomo, trato cada novo cliente como prioridade absoluta.</p>
+                <p>Minha missão é encurtar o caminho entre o proprietário e o comprador ideal através de estratégias de marketing moderno e um atendimento verdadeiramente humano e direto.</p>
+                <p>Aqui, seu imóvel não é apenas mais um anúncio; ele é um projeto exclusivo que trabalharemos juntos até a conclusão bem-sucedida do negócio.</p>
             </div>
         </section>
 
-        <section>
-            <h2 style="text-align: center; margin-bottom: 30px;">Por que me escolher para captar seu imóvel?</h2>
+        <section id="diferenciais">
+            <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 40px;">Por que me escolher?</h2>
             <div class="grid-diferenciais">
-                <div class="card">
+                <div class="card-dif">
                     <span>📱</span>
                     <h3>Marketing Ativo</h3>
-                    <p>Anúncios certeiros onde o seu cliente está.</p>
+                    <p>Uso ferramentas digitais para colocar seu imóvel na frente dos compradores certos.</p>
                 </div>
-                <div class="card">
+                <div class="card-dif">
                     <span>🤝</span>
                     <h3>Exclusividade</h3>
-                    <p>Atendimento dedicado e focado em resultados.</p>
+                    <p>Atendimento sem intermediários. Você fala diretamente com quem resolve.</p>
                 </div>
-                <div class="card">
+                <div class="card-dif">
                     <span>⚖️</span>
                     <h3>Segurança</h3>
-                    <p>Todo o suporte jurídico e contratual necessário.</p>
+                    <p>Suporte completo em avaliações e contratos para sua total tranquilidade.</p>
                 </div>
             </div>
         </section>
 
         <section class="cta-box">
-            <h2>Possui um imóvel e quer vender rápido?</h2>
-            <p>Estou captando novos imóveis para a minha carteira de destaques. Vamos conversar?</p>
-            <a href="https://wa.me/SEUNUMERO" class="btn-contato">Enviar Mensagem no WhatsApp</a>
+            <h2>Quer vender ou alugar com quem entende?</h2>
+            <p>Estou em fase de captação de novos imóveis. Vamos valorizar o seu?</p>
+            <a href="https://wa.me/5511950640669" class="btn-whats">Falar com Corretor Responsável</a>
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2026 ACAJ Imóveis - Consultoria Imobiliária</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <span class="footer-logo">ACAJ Imóveis</span>
+                    <span class="creci">CRECI: 00.000-X</span>
+                    <p>Consultoria dedicada para venda, locação e administração de imóveis.</p>
+                </div>
+               <div>
+                    <h3>Fale Comigo</h3>
+                    <p>📍 Santo André - São Paulo</p>
+                    <p>📞 (11) 9.5064-0669</p>
+                    <p>📧 acajimoveis@gmail.com</p>
+                </div>
+
+                <div>
+                    <h3>Redes Sociais</h3>
+                    <div class="social-links">
+                        <a href="#">Instagram</a>
+                        <a href="#">LinkedIn</a>
+                        <a href="#">Facebook</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="copyright">
+                <p>&copy; 2026 ACAJ Imóveis. Profissionalismo e Ética no Mercado Imobiliário.</p>
+            </div>
+        </div>
     </footer>
 
 </body>
