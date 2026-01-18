@@ -3,16 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Site Único</title>
+    <title>ACAJ Imóveis - Oficial</title>
     
     <style>
         /* Variáveis e Reset */
         :root {
             --primaria: #2563eb;
+            --primaria-hover: #1d4ed8;
             --escura: #1e293b;
             --clara: #f8fafc;
             --texto: #334155;
             --branco: #ffffff;
+            --bg-submenu: #2d3748; /* Cor de fundo do submenu */
         }
 
         * {
@@ -55,40 +57,87 @@
             font-size: 1.5rem;
             font-weight: bold;
             color: var(--primaria);
+            text-decoration: none;
         }
 
+        /* Menu Principal */
         .nav-links {
             display: flex;
             list-style: none;
         }
 
-        .nav-links li a {
+        /* Item da lista pai */
+        .nav-links > li {
+            position: relative; /* Necessário para posicionar o submenu */
+        }
+
+        .nav-links a {
             color: var(--branco);
             text-decoration: none;
-            margin-left: 20px;
+            padding: 10px 20px;
+            display: block;
             transition: 0.3s;
         }
 
-        .nav-links li a:hover {
+        /* Efeito de cor ao passar o mouse no item principal */
+        .nav-links > li:hover > a {
             color: var(--primaria);
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        /* ESTRUTURA DO SUBMENU (DROPDOWN) */
+        .submenu {
+            display: none; /* Escondido por padrão */
+            position: absolute;
+            top: 100%; /* Aparece logo abaixo do item pai */
+            left: 0;
+            background: var(--bg-submenu);
+            min-width: 200px;
+            list-style: none;
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+            border-radius: 0 0 5px 5px;
+            padding: 10px 0;
+        }
+
+        .submenu li a {
+            padding: 10px 20px;
+            font-size: 0.9rem;
+            color: var(--branco);
+        }
+
+        /* Efeito de cor ao passar o mouse nos itens do SUBMENU */
+        .submenu li a:hover {
+            background-color: var(--primaria);
+            color: var(--branco);
+            padding-left: 25px; /* Pequena animação de deslocamento */
+        }
+
+        /* MOSTRAR SUBMENU AO PASSAR O MOUSE */
+        .nav-links li:hover .submenu {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         /* Hero Section */
         .hero {
-            height: 80vh;
+            height: 70vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), 
-                        url('https://images.unsplash.com/photo-1497215728101-856f4ea42174?auto=format&fit=crop&w=1350&q=80');
+                        url('https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=1350&q=80');
             background-size: cover;
             background-position: center;
             color: var(--branco);
         }
 
         .hero h1 { font-size: 3rem; margin-bottom: 1rem; }
-        .hero p { font-size: 1.2rem; margin-bottom: 2rem; }
 
         .btn-principal {
             background: var(--primaria);
@@ -98,20 +147,19 @@
             border-radius: 5px;
             text-decoration: none;
             font-weight: bold;
-            cursor: pointer;
+            display: inline-block;
+            margin-top: 20px;
             transition: 0.3s;
         }
 
         .btn-principal:hover {
-            background: #1d4ed8;
+            background: var(--primaria-hover);
             transform: translateY(-2px);
         }
 
-        /* Seções Gerais */
         section { padding: 80px 0; }
-        h2 { text-align: center; margin-bottom: 40px; font-size: 2rem; }
+        h2 { text-align: center; margin-bottom: 40px; }
 
-        /* Rodapé */
         footer {
             background: var(--escura);
             color: white;
@@ -119,10 +167,9 @@
             padding: 40px 0;
         }
 
-        /* Responsividade Simples */
+        /* Responsividade */
         @media (max-width: 768px) {
-            .nav-links { display: none; } /* Esconde menu no mobile para simplificar */
-            .hero h1 { font-size: 2rem; }
+            .nav-links { display: none; }
         }
     </style>
 </head>
@@ -130,10 +177,33 @@
 
     <header>
         <nav class="container">
-            <div class="logo">MEU PROJETO</div>
+            <a href="#" class="logo">ACAJ Imóveis</a>
             <ul class="nav-links">
-                <li><a href="#home">Home</a></li>
-                <li><a href="#sobre">Sobre</a></li>
+                <li>
+                    <a href="#sobre">Sobre</a>
+                    <ul class="submenu">
+                        <li><a href="#">&&&&&&&</a></li>
+                        <li><a href="#">&&&&&&&</a></li>
+                        <li><a href="#">&&&&&&&</a></li>
+                    </ul>
+                    </li>
+                <li>
+                    <a href="#home">Imóveis ▼</a>
+                    <ul class="submenu">
+                        <li><a href="#">Casas à Venda</a></li>
+                        <li><a href="#">Apartamentos</a></li>
+                        <li><a href="#">Terrenos</a></li>
+                        <li><a href="#">Locação</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#servicos">Serviços ▼</a>
+                    <ul class="submenu">
+                        <li><a href="#">Avaliação</a></li>
+                        <li><a href="#">Consultoria</a></li>
+                        <li><a href="#">Financiamento</a></li>
+                    </ul>
+                </li>
                 <li><a href="#contato">Contato</a></li>
             </ul>
         </nav>
@@ -142,22 +212,29 @@
     <main>
         <section id="home" class="hero">
             <div class="container">
-                <h1>Sua Ideia Começa Aqui</h1>
-                <p>Este é um esqueleto profissional, limpo e pronto para ser personalizado.</p>
-                <a href="#sobre" class="btn-principal">Começar Agora</a>
+                <h1>Encontre o imóvel dos seus sonhos</h1>
+                <p>A ACAJ Imóveis oferece as melhores oportunidades da região.</p>
+                <a href="#sobre" class="btn-principal">Ver Catálogo</a>
             </div>
         </section>
 
         <section id="sobre" class="container">
-            <h2>Sobre o Site</h2>
-            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 20px;">
+            <h2>Nossos Diferenciais</h2>
+            <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 30px; text-align: center;">
                 <div>
-                    <h3>O que é?</h3>
-                    <p>Um esqueleto de código HTML/CSS acoplado para facilitar o seu desenvolvimento inicial.</p>
+                    <div style="font-size: 2rem; color: var(--primaria);">🏠</div>
+                    <h3>Qualidade</h3>
+                    <p>Imóveis selecionados com rigoroso padrão de qualidade.</p>
                 </div>
                 <div>
-                    <h3>Por onde começar?</h3>
-                    <p>Basta alterar os textos nas tags de parágrafo e as cores nas variáveis do CSS lá no topo.</p>
+                    <div style="font-size: 2rem; color: var(--primaria);">🤝</div>
+                    <h3>Confiança</h3>
+                    <p>Transparência total em todas as etapas da negociação.</p>
+                </div>
+                <div>
+                    <div style="font-size: 2rem; color: var(--primaria);">📍</div>
+                    <h3>Localização</h3>
+                    <p>As melhores localizações para morar ou investir.</p>
                 </div>
             </div>
         </section>
@@ -165,22 +242,21 @@
 
     <footer>
         <div class="container">
-            <p>&copy; 2026 Meu Projeto. Criado com inteligência.</p>
+            <p>&copy; 2026 ACAJ Imóveis. Todos os direitos reservados.</p>
         </div>
     </footer>
 
     <script>
-        // Efeito de scroll suave ao clicar nos links do menu
+        // Scroll suave
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    e.preventDefault();
+                    target.scrollIntoView({ behavior: 'smooth' });
+                }
             });
         });
-
-        console.log("O esqueleto do site está pronto e rodando!");
     </script>
 </body>
 </html>
