@@ -150,6 +150,18 @@
             .sobre-img { height: 350px; box-shadow: 10px 10px 0px var(--primaria); }
             .nav-links { display: none; }
         }
+
+/* Remove a formatação padrão de link nos cards */
+.card-link {
+    text-decoration: none;
+    color: inherit; /* Mantém a cor do texto original */
+    display: block; /* Faz o link ocupar o espaço todo do card */
+}
+
+.card-link:hover .card-dif {
+    border: 1px solid var(--detalhe); /* Adiciona uma borda dourada ao passar o mouse */
+    cursor: pointer;
+}
     </style>
 </head>
 <body>
@@ -199,26 +211,37 @@
             </div>
         </section>
 
-        <section id="diferenciais">
-            <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 40px;">Por que me escolher?</h2>
-            <div class="grid-diferenciais">
-                <div class="card-dif">
-                    <span>📱</span>
-                    <h3>Marketing Ativo</h3>
-                    <p>Uso ferramentas digitais para colocar seu imóvel na frente dos compradores certos.</p>
-                </div>
-                <div class="card-dif">
-                    <span>🤝</span>
-                    <h3>Exclusividade</h3>
-                    <p>Atendimento sem intermediários. Você fala diretamente com quem resolve.</p>
-                </div>
-                <div class="card-dif">
-                    <span>⚖️</span>
-                    <h3>Segurança</h3>
-                    <p>Suporte completo em avaliações e contratos para sua total tranquilidade.</p>
-                </div>
+<section id="diferenciais">
+    <h2 style="text-align: center; font-family: 'Playfair Display', serif; font-size: 2.2rem; margin-bottom: 40px;">Por que me escolher?</h2>
+    <div class="grid-diferenciais">
+        
+        <a href="servicos.html#marketing" class="card-link">
+            <div class="card-dif">
+                <span>📱</span>
+                <h3>Marketing Ativo</h3>
+                <p>Uso ferramentas digitais para colocar seu imóvel na frente dos compradores certos.</p>
             </div>
-        </section>
+        </a>
+
+        <a href="https://wa.me/5511950640669" class="card-link">
+            <div class="card-dif">
+                <span>🤝</span>
+                <h3>Exclusividade</h3>
+                <p>Atendimento sem intermediários. Você fala diretamente com quem resolve.</p>
+            </div>
+        </a>
+
+        <a href="servicos.html#seguranca" class="card-link">
+            <div class="card-dif">
+                <span>⚖️</span>
+                <h3>Segurança</h3>
+                <p>Suporte completo em avaliações e contratos para sua total tranquilidade.</p>
+            </div>
+        </a>
+        
+    </div>
+</section>
+
 
         <section class="cta-box">
             <h2>Quer vender ou alugar com quem entende?</h2>
